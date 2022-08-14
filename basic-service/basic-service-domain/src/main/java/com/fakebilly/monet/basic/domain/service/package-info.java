@@ -1,0 +1,1 @@
+package com.fakebilly.monet.basic.domain.service;

@@ -1,0 +1,2 @@
+monitorServiceFilter=com.fakebilly.monet.basic.application.filter.MonitorServiceFilter
+customerValidationFilter=com.fakebilly.monet.basic.application.filter.CustomerValidationFilter

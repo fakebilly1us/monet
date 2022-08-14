@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fakebilly.monet.business.infrastructure.mapper.BusinessMapper">
+
+    <resultMap type="com.fakebilly.monet.business.infrastructure.entity.Business" id="BaseMap">
+        <result property="id" column="id"/>
+        <result property="businessName" column="business_name"/>
+        <result property="creatorId" column="creator_id"/>
+        <result property="creatorName" column="creator_name"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="modifierId" column="modifier_id"/>
+        <result property="modifierName" column="modifier_name"/>
+        <result property="modifiedTime" column="modified_time"/>
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        <trim suffixOverrides=",">
+            `id`,
+            `business_name`,
+            `creator_id`,
+            `creator_name`,
+            `created_time`,
+            `modifier_id`,
+            `modifier_name`,
+            `modified_time`,
+        </trim>
+    </sql>
+
+    <sql id="TableName">
+        `business`
+    </sql>
+
+    <insert id="insert">
+        INSERT INTO `business`
+        (
+        <trim suffixOverrides=",">
+            <if test="id!=null">
+                `id`,
+            </if>
+            <if test="businessName!=null">
+                `business_name`,
+            </if>
+            <if test="creatorId!=null">
+                `creator_id`,
+            </if>
+            <if test="creatorName!=null">
+                `creator_name`,
+            </if>
+            <if test="createdTime!=null">
+                `created_time`,
+            </if>
+            <if test="modifierId!=null">
+                `modifier_id`,
+            </if>
+            <if test="modifierName!=null">
+                `modifier_name`,
+            </if>
+            <if test="modifiedTime!=null">
+                `modified_time`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="id!=null">
+                #{id},
+            </if>
+            <if test="businessName!=null">
+                #{businessName},
+            </if>
+            <if test="creatorId!=null">
+                #{creatorId},
+            </if>
+            <if test="creatorName!=null">
+                #{creatorName},
+            </if>
+            <if test="createdTime!=null">
+                #{createdTime},
+            </if>
+            <if test="modifierId!=null">
+                #{modifierId},
+            </if>
+            <if test="modifierName!=null">
+                #{modifierName},
+            </if>
+            <if test="modifiedTime!=null">
+                #{modifiedTime},
+            </if>
+        </trim>
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE `business`
+        SET
+        <trim suffixOverrides=",">
+            <if test="businessName != null and businessName!=''">
+                `business_name` = #{businessName},
+            </if>
+            <if test="creatorId != null">
+                `creator_id` = #{creatorId},
+            </if>
+            <if test="creatorName != null and creatorName!=''">
+                `creator_name` = #{creatorName},
+            </if>
+            <if test="createdTime != null">
+                `created_time` = #{createdTime},
+            </if>
+            <if test="modifierId != null">
+                `modifier_id` = #{modifierId},
+            </if>
+            <if test="modifierName != null and modifierName!=''">
+                `modifier_name` = #{modifierName},
+            </if>
+            <if test="modifiedTime != null">
+                `modified_time` = #{modifiedTime},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `id` = #{id} and
+        </trim>
+    </update>
+
+    <select id="selectById" resultMap="BaseMap" parameterType="java.lang.Long">
+        select
+        <include refid="BaseColumnList"/>
+        from
+        <include refid="TableName"/>
+        where `id` = #{id}
+    </select>
+
+    <select id="selectList" resultMap="BaseMap"
+            parameterType="com.fakebilly.monet.business.domain.model.condition.business.ListBusinessCondition">
+        select
+        <include refid="BaseColumnList"/>
+        from
+        <include refid="TableName"/>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="null != condition.idList and condition.idList.size > 0">
+                `id` in
+                <foreach collection="condition.idList" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+                and
+            </if>
+        </trim>
+    </select>
+
+    <select id="selectPage" resultMap="BaseMap"
+            parameterType="com.fakebilly.monet.business.domain.model.condition.business.PageBusinessCondition">
+        select
+        <include refid="BaseColumnList"/>
+        from
+        <include refid="TableName"/>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="condition.businessName != null and condition.businessName!=''">
+                `business_name` = #{condition.businessName} and
+            </if>
+        </trim>
+        order by creation_time desc
+    </select>
+</mapper>

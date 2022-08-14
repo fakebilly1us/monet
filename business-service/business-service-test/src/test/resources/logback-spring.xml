@@ -1,0 +1,161 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <!-- 定义参数, 后面可以通过 ${APP_NAME} 使用 -->
+    <springProperty name="APP_NAME" scope="context"
+                    source="spring.application.name" defaultValue="business-service"/>
+    <property name="LOG_PATH" value="logs"/>
+    <property name="LOG_PATTERN"
+              value="[%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}] [%level] [${PID:- }] [%t] - %msg%n"/>
+
+    <!-- 标准输出模式 CONSOLE -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 对日志进行格式化 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 输出模式, 滚动记录文件, 先将日志文件指定到文件, 当符合某个条件时, 将日志记录到其他文件 -->
+    <appender name="RollingFileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 被写入的文件名, 可以是相对目录, 也可以是绝对目录, 如果上级目录不存在会自动创建, 没有默认值。 -->
+        <file>${LOG_PATH}/info.log</file>
+        <!-- 滚动策略 基于时间的分包策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- yyyy-MM-dd-HH 时间策略则为一小时一个文件, %d{yyyy-MM-dd-HH}指定日期格式, %i指定索引 -->
+            <FileNamePattern>${LOG_PATH}/%d{yyyy-MM, aux}/info-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <!-- 启动项目时是否删除归档的历史日志文件 -->
+            <cleanHistoryOnStart>false</cleanHistoryOnStart>
+            <!-- 日志文件保留数, 此处的时间单位是从fileNamePattern的.%d{yyyy-MM-dd}.中提取的, 按精确单位 -->
+            <MaxHistory>30</MaxHistory>
+            <!-- 单个日志文件最大1GB -->
+            <maxFileSize>1GB</maxFileSize>
+            <!-- 日志文件总大小超过20GB会删除旧的日志文件 -->
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <!-- 对日志进行格式化 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <!-- layout 负责把事件转换成字符串, 格式化的日志信息的输出 -->
+        <!-- 级别过滤器, 根据日志级别进行过滤。如果日志级别等于配置级别, 过滤器会根据 onMath 和 onMismatch 接收或拒绝日志 -->
+        <!--
+            过滤策略：
+            LevelFilter: 只打印level标签设置的日志级别
+            ThresholdFilter: 打印大于等于 level 标签设置的级别, 小的舍弃
+            当前 appender = RollingFileInfo 只记录 info 级别
+        -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 设置过滤级别 -->
+            <level>INFO</level>
+            <!-- 用于配置符合过滤条件的操作 -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 用于配置不符合过滤条件的操作 -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="RollingFileWarn" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/warn.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_PATH}/%d{yyyy-MM, aux}/warn-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <cleanHistoryOnStart>false</cleanHistoryOnStart>
+            <MaxHistory>30</MaxHistory>
+            <maxFileSize>1GB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <!-- 对日志进行格式化 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="RollingFileError" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_PATH}/%d{yyyy-MM, aux}/error-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <cleanHistoryOnStart>false</cleanHistoryOnStart>
+            <MaxHistory>30</MaxHistory>
+            <maxFileSize>1GB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <!-- 对日志进行格式化 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="AsyncInfo" class="ch.qos.logback.classic.AsyncAppender">
+        <!--
+            默认情况下, 当BlockingQueue还有20%容量,
+            他将丢弃TRACE、DEBUG和INFO级别的event, 只保留WARN和ERROR级别的event。
+            为了保持所有的events, 设置该值为0。
+        -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>1024</queueSize>
+        <!-- 如果设置了 neverBlock = true 则写日志队列时候会调用 ArrayBlockingQueue 的 offer 方法而不是 put , 而 offer 是非阻塞的 -->
+        <neverBlock>true</neverBlock>
+        <!-- 添加附加的appender, 最多只能添加一个 -->
+        <appender-ref ref="RollingFileInfo"/>
+    </appender>
+
+    <appender name="AsyncWarn" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>1024</queueSize>
+        <neverBlock>true</neverBlock>
+        <appender-ref ref="RollingFileWarn"/>
+    </appender>
+
+    <appender name="AsyncError" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>1024</queueSize>
+        <neverBlock>true</neverBlock>
+        <appender-ref ref="RollingFileError"/>
+    </appender>
+
+    <!--
+        request 日志
+        additivity: 是否向上级logger传递打印信息。默认是true。
+        同<logger>一样, 可以包含零个或多个<appender-ref>元素, 标识这个appender将会添加到这个logger。
+    -->
+    <!--
+        <logger>用来设置某一个包或者具体的某一个类的日志打印级别、 以及指定<appender>。<logger>仅有一个name属性, 一个可选的level和一个可选的addtivity属性。
+        name:用来指定受此logger约束的某一个包或者具体的某一个类。
+        level:用来设置打印级别, 大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和OFF, 还有一个特俗值INHERITED或者同义词NULL, 代表强制执行上级的级别。如果未设置此属性, 那么当前logger将会继承上级的级别。
+        addtivity:是否向上级logger传递打印信息。默认是true。
+    -->
+    <!-- 第三方日志 -->
+    <logger name="org.apache.http" level="WARN"/>
+    <logger name="org.springframework" level="DEBUG"/>
+    <logger name="org.mybatis" level="INFO"/>
+    <logger name="org.apache.zookeeper" level="ERROR"/>
+    <logger name="org.apache.dubbo" level="ERROR"/>
+    <logger name="org.springframework.boot.autoconfigure" level="ERROR"/>
+    <logger name="log.logger.java.sql" level="DEBUG"/>
+
+    <logger name="com.fakebilly.monet.business" level="DEBUG"/>
+
+    <!-- rootLogger 是默认的 logger -->
+    <root level="INFO">
+        <!-- 定义的 appender, 日志往 appender 里面写 -->
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="RollingFileInfo"/>
+        <appender-ref ref="RollingFileWarn"/>
+        <appender-ref ref="RollingFileError"/>
+    </root>
+</configuration>
