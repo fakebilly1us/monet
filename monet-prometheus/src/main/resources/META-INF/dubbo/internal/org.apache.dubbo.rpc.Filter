@@ -1,0 +1,2 @@
+monetDubboConsumerMonitorFilter=com.fakebilly.monet.prometheus.rpc.MonetDubboConsumerMonitorFilter
+monetDubboMonitorFilter=com.fakebilly.monet.prometheus.rpc.MonetDubboMonitorFilter

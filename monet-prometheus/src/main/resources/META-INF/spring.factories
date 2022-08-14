@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.fakebilly.monet.prometheus.start.PrometheusAutoConfiguration,\
+  com.fakebilly.monet.prometheus.start.MonitorInterceptorAutoConfiguration
