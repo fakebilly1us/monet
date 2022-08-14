@@ -39,3 +39,7 @@
     - ```rocketmq-client version``` 4.9.4
 - 定制开发 ```RocketMQ Client```
 
+## monet-redis
+- **Redis 客户端 Redisson**
+  - ```redisson version``` 3.15.6
+- 定制开发 ```Redisson```
