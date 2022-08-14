@@ -25,3 +25,7 @@
     -DarchetypeGroupId=com.fakebilly.monet \
     -DarchetypeVersion=1.0.0
   ```
+
+## monet-core
+- **核心类**
+- 定义顶层对象/属性
