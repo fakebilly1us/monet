@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.fakebilly.monet.idworker.config.IdSnowFlakeAutoConfiguration
