@@ -33,3 +33,9 @@
 ## monet-idworder
 - **ID 发号器**
 - 生成雪花 ID
+
+## monet-mq
+- **RocketMQ 客户端**
+    - ```rocketmq-client version``` 4.9.4
+- 定制开发 ```RocketMQ Client```
+
