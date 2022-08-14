@@ -1,5 +1,4 @@
 # Monet
-**Monet**
 
 ## draw-archetypes
 - **项目原型**

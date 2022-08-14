@@ -1,0 +1,1 @@
+package ${package}.domain.model.condition;

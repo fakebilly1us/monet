@@ -1,0 +1,1 @@
+package ${package}.api.dto;
