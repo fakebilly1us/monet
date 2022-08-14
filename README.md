@@ -43,3 +43,8 @@
 - **Redis 客户端 Redisson**
   - ```redisson version``` 3.15.6
 - 定制开发 ```Redisson```
+
+## monet-es
+- **Elasticsearch 客户端**
+  - ```elasticsearch version``` 7.16.3
+- 定制开发 ```Elasticsearch Java Client```
