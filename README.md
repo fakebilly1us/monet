@@ -1,6 +1,9 @@
 # Monet
 **Monet**
 
+## 项目结构
+![image](images/monet.png)
+
 ## draw-archetypes
 - **项目原型**
 - ```draw-service```: 创建纯后端 ```Dubbo``` 应用
@@ -70,3 +73,13 @@
 - 适配 ```ThreadPoolExecutor.submit``` Lambda 表达式
 - ```skywalking-agent``` agent 编译包
 > https://github.com/fakebilly-dev/skywalking
+
+## basic-service
+- **示例服务: 基础服务**
+- 服务 组件 集成示例 详见 ```dev``` 分支
+  - ``` git checkout dev ```
+
+## business-service
+- **示例服务: 业务服务**
+- 服务 组件 集成示例 详见 ```dev``` 分支
+  - ``` git checkout dev ```
