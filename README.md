@@ -4,6 +4,17 @@
 ## 项目结构
 ![image](images/monet.png)
 
+## 服务结构
+
+- ```api```: 接口层, 提供内部 RPC 接口/对象定义
+- ```server```: 服务层, 处理 网页端/移动端/H5/HTTP等 WEB请求, WEB 接口/对象定义, 仅提供内部服务则不需要此层; 依赖 ```application``` 层
+- ```application```: 应用层, 处理 api/server 请求, 接口调度/数据聚合/消息消费/定时任务等; 依赖 ```api domain``` 层
+- ```domain```: 领域层, 领域实现, 处理业务核心逻辑
+- ```infrastructure```: 基础设施层, 数据库映射/服务外接口映射, 仅做数据设施/接口设施转换 不处理业务逻辑; 依赖 ```domain``` 层
+- ```test```: 单元测试 其它层不做测试逻辑; 依赖 ```server/application infrastructure``` 层
+- ```start```: 仅提供服务启动类 服务配置文件; 依赖 ```server/application infrastructure``` 层
+
+
 ## draw-archetypes
 - **项目原型**
 - ```draw-service```: 创建纯后端 ```Dubbo``` 应用
