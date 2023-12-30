@@ -21,7 +21,7 @@ import java.util.List;
  * 查询
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Repository
 public class UserFindRepositoryImpl implements UserFindRepository {

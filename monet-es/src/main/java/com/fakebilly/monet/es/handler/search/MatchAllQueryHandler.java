@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * MatchAllQueryHandler
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Component("MATCH_ALL_QUERY_HANDLER")
 public class MatchAllQueryHandler extends QueryBaseHandler {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * TermsQueryHandler
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Component("TERMS_QUERY_HANDLER")
 public class TermsQueryHandler extends QueryBaseHandler {

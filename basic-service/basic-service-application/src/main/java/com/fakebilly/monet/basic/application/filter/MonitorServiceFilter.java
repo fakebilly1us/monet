@@ -17,7 +17,7 @@ import org.apache.dubbo.rpc.*;
  * MonitorServiceFilter
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Slf4j
 @Activate(group = {CommonConstants.PROVIDER}, order = 10000)

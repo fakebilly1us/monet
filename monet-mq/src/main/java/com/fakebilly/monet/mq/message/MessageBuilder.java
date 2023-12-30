@@ -13,7 +13,7 @@ import java.io.Serializable;
  * MessageBuilder
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public class MessageBuilder implements Serializable {
 

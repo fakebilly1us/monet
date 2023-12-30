@@ -4,7 +4,7 @@ package com.fakebilly.monet.basic.domain.adapter;
  * IdWorkerAdapter
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public interface IdWorkerAdapter {
 

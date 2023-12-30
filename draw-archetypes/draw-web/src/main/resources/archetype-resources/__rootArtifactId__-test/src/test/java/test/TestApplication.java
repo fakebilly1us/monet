@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * TestApplication
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @SpringBootApplication(scanBasePackages = {"${package}"})
 @NacosPropertySource(dataId = "", groupId = "", autoRefreshed = true)

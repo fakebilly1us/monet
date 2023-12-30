@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.toList;
  * IPage
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public interface IPage<T> extends Serializable {
 

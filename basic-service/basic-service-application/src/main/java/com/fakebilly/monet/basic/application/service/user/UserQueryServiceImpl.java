@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * IUserQueryService.UserQueryServiceImpl
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Service(version = "1.0.0", retries = 0, timeout = 30000, validation = "true")
 public class UserQueryServiceImpl implements IUserQueryService {

@@ -8,7 +8,7 @@ import ch.qos.logback.core.util.OptionHelper;
  * LogbackMDCPatternConverter
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public class LogbackMDCPatternConverter extends MDCConverter {
 

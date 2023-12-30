@@ -11,7 +11,7 @@ import java.io.Serializable;
  * RedisAdapter.RedisAdapterImpl
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Component
 public class RedisAdapterImpl implements RedisAdapter {

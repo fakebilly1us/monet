@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * MeterRegistryListener
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Component
 public class MeterRegistryListener implements ApplicationListener<ContextRefreshedEvent> {

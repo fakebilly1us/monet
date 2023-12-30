@@ -11,7 +11,7 @@ import org.apache.logging.log4j.util.PerformanceSensitive;
  * ApplicationNameConverter
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Plugin(name = "ApplicationNameConverter", category = PatternConverter.CATEGORY)
 @ConverterKeys({"applicationName"})

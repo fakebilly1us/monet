@@ -6,7 +6,7 @@ import co.elastic.clients.elasticsearch._types.query_dsl.Operator;
  * FieldClassEnum
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public enum ESOperatorEnum {
 

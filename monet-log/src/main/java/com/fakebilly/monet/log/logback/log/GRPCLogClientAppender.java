@@ -8,7 +8,7 @@ import java.io.OutputStream;
  * GRPCLogClientAppender
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public class GRPCLogClientAppender<E> extends OutputStreamAppender<E> {
 

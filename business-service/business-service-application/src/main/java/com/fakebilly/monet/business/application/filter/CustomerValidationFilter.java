@@ -23,7 +23,7 @@ import static org.apache.dubbo.common.constants.FilterConstants.VALIDATION_KEY;
  * CustomerValidationFilter
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Slf4j
 @Activate(group = {PROVIDER, CONSUMER}, value = VALIDATION_KEY, order = 10000)

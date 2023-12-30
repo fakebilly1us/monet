@@ -6,7 +6,7 @@ import com.fakebilly.monet.business.domain.model.command.business.CreateBusiness
  * 新增
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public interface BusinessCreateRepository {
 

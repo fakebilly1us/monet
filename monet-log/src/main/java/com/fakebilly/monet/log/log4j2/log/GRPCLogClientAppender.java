@@ -17,7 +17,7 @@ import java.io.Serializable;
  * GRPCLogClientAppender
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Plugin(name = "GRPCLogClientAppender", category = "Core", elementType = "appender")
 public class GRPCLogClientAppender extends AbstractOutputStreamAppender<OutputStreamManager> {

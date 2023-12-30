@@ -19,7 +19,7 @@ import org.apache.logging.log4j.util.StringBuilders;
  * when this pattern converter has the option set.
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Plugin(name = "Log4j2MdcPatternConverter", category = PatternConverter.CATEGORY)
 @ConverterKeys({ "X", "mdc", "MDC" })

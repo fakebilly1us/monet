@@ -9,7 +9,7 @@ import com.fakebilly.monet.es.utils.ESApplicationUtil;
  * QueryBaseHandler
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 public abstract class QueryBaseHandler {
 

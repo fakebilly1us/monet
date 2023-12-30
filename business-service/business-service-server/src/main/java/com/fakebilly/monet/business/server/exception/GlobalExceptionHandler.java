@@ -25,7 +25,7 @@ import java.util.Set;
  * 全局异常处理
  * @author FakeBilly
  * @version V1.0.0
- * @github https://github.com/fakebilly-dev/monet
+ * @github https://github.com/fakebilly1us/monet
  **/
 @Slf4j
 @ControllerAdvice
